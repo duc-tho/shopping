@@ -1,6 +1,6 @@
 Mei Shop Website Project
 ========================
-Libarys use in this project
+Librarys use in this project
 ---------------------------
 - Bootstrap
 - Font Awsome
