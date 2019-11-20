@@ -1,0 +1,76 @@
+* {
+     scroll-behavior: smooth;
+}
+
+.ms-white-space-nowrap {
+     white-space: nowrap;
+}
+
+.ms-bg-dark {
+     background-color: #293045 !important;
+}
+
+.ms-text-dark {
+     color: #293045 !important;
+}
+
+.ms-hover {
+     transition: .2s;
+}
+
+.ms-hover:hover {
+     box-shadow: 0px 4px 10px -1px rgba(0, 0, 0, 0.15);
+     transition: .2s;
+     transform: translateY(-2px);
+}
+
+.ms-center-image {
+     position: relative;
+}
+
+.ms-center-image>img {
+     position: absolute;
+     top: 0;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     margin: auto;
+}
+
+.owl-theme .owl-dots .owl-dot {
+     outline: none;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+     outline: none;
+     transition: .3s;
+     margin: 5px 6px;
+}
+
+.owl-theme .owl-dots .owl-dot.active span {
+     transition: .3s;
+     width: 20px;
+}
+
+.pace {
+     -webkit-pointer-events: none;
+     pointer-events: none;
+
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     user-select: none;
+}
+
+.pace-inactive {
+     display: none;
+}
+
+.pace .pace-progress {
+     background: #f8abb9;
+     position: fixed;
+     z-index: 2000;
+     top: 0;
+     right: 100%;
+     width: 100%;
+     height: 2px;
+}

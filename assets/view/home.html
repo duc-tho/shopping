@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Mei Shop - Trang Chủ</title>
+     <link rel="shortcut icon" href="../img/Icon.png" type="image/x-icon">
+     <link rel="stylesheet" href="../css/home.css">
+     <link rel="stylesheet" href="../lib/fontawesome/css/all.min.css">
+     <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+     <link rel="stylesheet" href="../lib/OwlCarousel/owl.carousel.min.css">
+     <link rel="stylesheet" href="../lib/OwlCarousel/owl.theme.default.min.css">
+     <script src="../lib/jquery/jquery-3.4.1.min.js"></script>
+     <script src="../lib/popper/popper.min.js"></script>
+     <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+     <script src="../lib/sweetalert/sweetalert.min.js"></script>
+     <script src="../lib/OwlCarousel/owl.carousel.min.js"></script>
+     <script src="../lib/pace/pace.min.js"></script>
+</head>
+
+<body>
+     <header>
+          <nav class="navbar navbar-expand-lg navbar-dark ms-bg-dark">
+               <img src="../img/Logo_Min.png" alt="Logo" class="navbar-brand img-fluid">
+               <button type="button" class="navbar-toggler collapsed" data-toggle="collapse"
+                    data-target="#navbar-content" aria-expanded="true" aria-label="Toggle navigation">
+                    <i class="fas fa-th-large text-light"></i>
+               </button>
+               <div class="collapse navbar-collapse" id="navbar-content">
+                    <ul class="navbar-nav ms-white-space-nowrap text-center">
+                         <li class="nav-item">
+                              <a href="#" class="nav-link active"> Trang chủ</a>
+                         </li>
+                         <li class="nav-item">
+                              <a href="#" class="nav-link">Về chúng tôi</a>
+                         </li>
+                         <li class="nav-item">
+                              <a href="#" class="nav-link">Liên hệ</a>
+                         </li>
+                    </ul>
+                    <form class="d-inline mx-2 my-auto w-100">
+                         <div class="input-group">
+                              <input type="text" class="form-control border border-right-0"
+                                   placeholder="Tìm kiếm sản phẩm">
+                              <span class="input-group-append">
+                                   <button class="btn btn-outline-light border border-left-0" type="button">
+                                        <i class="fa fa-search"></i>
+                                   </button>
+                              </span>
+                         </div>
+                    </form>
+                    <ul class="navbar-nav">
+                         <li class="nav-item dropdown">
+                              <a href="#" data-toggle="dropdown"
+                                   class="btn btn-light nav-link ms-text-dark btn-sm mr-lg-2 mb-2 mb-lg-0">
+                                   <i class=" fa fa-cart-plus fa-lg mr-1"></i>
+                                   <span class="font-weight-bold">Giỏ hàng</span>
+                                   <span id="ms-cart-count" class="badge badge-primary ml-1">0</span>
+                              </a>
+                              <div id="ms-cart-item" class="dropdown-menu dropdown-menu-right mt-1"
+                                   aria-labelledby="dropdownMenuButton" style="height: 400px; overflow: auto;">
+                                   <h4 class="dropdown-header text-center">Các sản phẩm đã thêm vào giỏ</h4>
+                                   <div class="dropdown-divider"></div>
+                                   <!--a class="dropdown-item px-3" href="#">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                             <img style="max-width: 80px;"
+                                                  src="../img/Product/1.jpg"
+                                                  alt="">
+                                             <div class="d-inline-flex flex-column align-middle mx-2"
+                                                  style="flex-grow: 1;">
+                                                  <span id="ms-product-name">Samsung Galaxy <small class="text-danger">50.000
+                                                            </small></span>
+                                                  <span class="text-success">¥100.000 <span class="badge badge-info">2
+                                                            sản
+                                                            phẩm</span></span>
+                                                  <span class="text-secondary">2:01 AM T3:19/11/2019</span>
+                                             </div>
+                                             <button id="ms-delete-product-from-cart" class="btn btn-danger"
+                                                  style="flex-grow: 0;">Xóa</button>
+                                        </div>
+                                   </a-->
+                              </div>
+                         </li>
+                         <li class="nav-item" id="ms-login">
+                              <a href="#" class="nav-link btn btn-light btn-sm ms-text-dark"><i
+                                        class="fa fa-sign-in-alt fa-lg"></i></a>
+                         </li>
+                         <li class="nav-item d-none" id="ms-logout">
+                              <a href="#" id="ms-logout" class="nav-link btn btn-light btn-sm ms-text-dark"><i
+                                        class="fa fa-sign-out-alt fa-lg"></i></a>
+                         </li>
+                    </ul>
+               </div>
+          </nav>
+          <div class="owl-carousel owl-theme">
+               <a href="#"><img src="../img/slide/1.jpg" class="img-fluid"></a>
+               <a href="#"><img src="../img/slide/2.jpg"></a>
+               <a href="#"><img src="../img/slide/3.jpg"></a>
+               <a href="#"><img src="../img/slide/4.jpg"></a>
+               <a href="#"><img src="../img/slide/5.jpg"></a>
+               <a href="#"><img src="../img/slide/6.jpg"></a>
+          </div>
+     </header>
+     <main class="container">
+          <div class="row bg-light py-3 rounded my-3">
+               <div class="col-12">
+                    <h3 class="text-primary text-center text-lg-left"><i class="fa fa-stream" aria-hidden="true"></i>
+                         Danh mục sản phẩm</h3>
+                    <hr>
+               </div>
+               <div class="col-lg-3 col-sm-6 my-1 mx-auto">
+                    <a href="#" class="btn btn-light w-100">
+                         <img class="d-inline-block" src="../img/Category/phone.png" width="70px">
+                         <h5 class="ms-white-space-nowrap d-inline ml-3">Điện Thoại</h5>
+                    </a>
+               </div>
+               <div class="col-lg-3 col-sm-6 my-1 mx-auto">
+                    <a href="#" class="btn btn-light w-100">
+                         <img class="d-inline-block" src="../img/Category/laptop.png" width="70px">
+                         <h5 class="ms-white-space-nowrap d-inline ml-3">Laptop</h5>
+                    </a>
+               </div>
+               <div class="col-lg-3 col-sm-6 my-1 mx-auto">
+                    <a href="#" class="btn btn-light w-100">
+                         <img class="d-inline-block" src="../img/Category/tivi.png" width="70px">
+                         <h5 class="ms-white-space-nowrap d-inline ml-3">Tivi</h5>
+                    </a>
+               </div>
+               <div class="col-lg-3 col-sm-6 my-1 mx-auto">
+                    <a href="#" class="btn btn-light w-100">
+                         <img class="d-inline-block" src="../img/Category/sach.png" width="70px">
+                         <h5 class="ms-white-space-nowrap d-inline ml-3">Sách</h5>
+                    </a>
+               </div>
+               <div class="col-lg-3 col-sm-6 my-1 mx-auto">
+                    <a href="#" class="btn btn-light w-100">
+                         <img class="d-inline-block" src="../img/Category/the_thao.png" width="70px">
+                         <h5 class="ms-white-space-nowrap d-inline ml-3">Thể Thao</h5>
+                    </a>
+               </div>
+               <div class="col-lg-3 col-sm-6 my-1 mx-auto">
+                    <a href="#" class="btn btn-light w-100">
+                         <img class="d-inline-block" src="../img/Category/do_dien_gia_dung.png" width="70px">
+                         <h5 class="ms-white-space-nowrap d-inline ml-3">Đồ Điện</h5>
+                    </a>
+               </div>
+               <div class="col-lg-3 col-sm-6 my-1 mx-auto">
+                    <a href="#" class="btn btn-light w-100">
+                         <img class="d-inline-block" src="../img/Category/tui_vi.png" width="70px">
+                         <h5 class="ms-white-space-nowrap d-inline ml-3">Túi Ví</h5>
+                    </a>
+               </div>
+               <div class="col-lg-3 col-sm-6 my-1 mx-auto">
+                    <a href="#" class="btn btn-light w-100">
+                         <img class="d-inline-block" src="../img/Category/xe_may.png" width="70px">
+                         <h5 class="ms-white-space-nowrap d-inline ml-3">Xe Máy</h5>
+                    </a>
+               </div>
+          </div>
+          <div id="ms-product-list" class="row bg-light py-3 rounded my-3">
+               <div class="col-12">
+                    <h3 class="text-success text-center text-lg-left"><i class="fa fa-paper-plane"
+                              aria-hidden="true"></i> Sản phẩm hàng đầu</h3>
+                    <hr>
+               </div>
+               <!--div class="col-md-6 col-lg-3 my-2">
+                    <div class="card ms-hover">
+                         <div class="card-img-top ms-center-image my-4" style="height: 250px;">
+                              <img id="ms-product-image" class="mw-100 mh-100" src="../img/Product/1.jpg" alt="Ảnh minh họa">
+                         </div>
+                         <div class="card-body">
+                              <div class="row">
+                                   <div class="col-8 text-center text-md-left"
+                                        style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                        <h5 class="card-title d-inline text-center">
+                                             <a id="ms-product-name" href="#">Samsung Galaxy</a>
+                                        </h5>
+                                   </div>
+                                   <div class="col-4 my-auto">
+                                        <div class="badge badge-light w-100 py-2">
+                                             4.9 <i class="fa fa-star text-right text-warning" aria-hidden="true"></i>
+                                        </div>
+                                   </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+                                   <div class="col-8 text-center ms-white-space-nowrap text-md-left">
+                                        <span class="text-secondary">100.000 đ <div class="badge badge-success">-50%
+                                             </div>
+                                        </span>
+                                        <h4 id="ms-product-price" class="card-text text-danger">50.000 <i
+                                                  class="fa fa-money-bill-alt"></i>
+                                        </h4>
+                                   </div>
+                                   <div class="col-4 justify-content-center d-flex">
+                                        <button id="ms-add-to-cart" class="btn btn-outline-success h-100">
+                                             <i class="fa fa-cart-plus fa-lg"></i>
+                                        </button>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+               <div class="col-12">
+                    <ul class="pagination mt-2 mb-0 justify-content-center ms-white-space-nowrap">
+                         <li class="page-item"><a class="page-link" href="#">Trang đầu</a></li>
+                         <li class="page-item"><a class="page-link" href="#">1</a></li>
+                         <li class="page-item"><a class="page-link" href="#">2</a></li>
+                         <li class="page-item"><a class="page-link" href="#">3</a></li>
+                         <li class="page-item"><a class="page-link" href="#">Trang cuối</a></li>
+                    </ul>
+               </div-->
+          </div>
+     </main>
+
+     <script src="../js/home.js"></script>
+     <script src="../js/cart.js"></script>
+</body>
+
+</html>
