@@ -12,6 +12,7 @@
      <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
      <link rel="stylesheet" href="../lib/OwlCarousel/owl.carousel.min.css">
      <link rel="stylesheet" href="../lib/OwlCarousel/owl.theme.default.min.css">
+     <link rel="stylesheet" href="../lib/animate/animate.min.css">
      <script src="../lib/jquery/jquery-3.4.1.min.js"></script>
      <script src="../lib/popper/popper.min.js"></script>
      <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
@@ -21,6 +22,32 @@
 </head>
 
 <body>
+     <div class="container">
+          <div id="ms-login-form" class="row position-fixed"
+               style="height: 100vh; background: rgba(0, 0, 0, 0.44); top: 0; width: 100vw; left: 0; z-index: 5; display: none;">
+               <form class="row col-4 m-auto form-control bg-light py-4">
+                    <h3 class="text-success text-center mb-4 font-weight-light">Đăng Nhập</h3>
+                    <div class="row col-12 m-auto">
+                         <div class="form-group row col-12">
+                              <label for="ms-login-username" class="col-sm-2 col-form-label">Email</label>
+                              <div class="col-sm-10 pl-4 pr-0">
+                                   <input type="email" class="form-control" id="ms-login-username">
+                              </div>
+                         </div>
+                         <div class="form-group row col-12">
+                              <label for="ms-login-password" class="col-sm-2 col-form-label">Password</label>
+                              <div class="col-sm-10 pl-4 pr-0">
+                                   <input type="password" class="form-control" id="ms-login-password">
+                              </div>
+                         </div>
+                    </div>
+                    <div class="col-3 mx-auto">
+                         <button class="w-100 btn btn-outline-dark" type="submit"><i
+                                   class="fa fa-sign-in-alt fa-weight-light"></i></button>
+                    </div>
+               </form>
+          </div>
+     </div>
      <header>
           <nav class="navbar navbar-expand-lg navbar-dark ms-bg-dark">
                <img src="../img/Logo_Min.png" alt="Logo" class="navbar-brand img-fluid">
