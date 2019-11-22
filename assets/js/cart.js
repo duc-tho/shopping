@@ -214,7 +214,7 @@ function getTime() {
      let month = now.getMonth() + 1;
      let year = now.getUTCFullYear();
 
-     return `${checkNum(hour)}:${checkNum(min)} T${date} ${checkNum(day)}/${checkNum(month)}/${year}`;
+     return `${checkNum(hour)}:${checkNum(min)} T${date + 1} ${checkNum(day)}/${checkNum(month)}/${year}`;
 }
 
 function checkNum(item) {
@@ -233,7 +233,7 @@ function loadProduct() {
 
           productList.innerHTML += `<div class="col-md-6 col-lg-3 my-2">
                <div class="card ms-hover">
-                    <div class="card-img-top ms-center-image my-4" style="height: 250px;">
+                    <div class="card-img-top ms-center-image my-4 ms-zoom" style="height: 250px;">
                          <img id="ms-product-image" class="mw-100 mh-100" src="../img/Product/1.jpg" alt="Ảnh minh họa">
                     </div>
                     <div class="card-body">

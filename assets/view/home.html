@@ -22,28 +22,33 @@
 </head>
 
 <body>
+     <a id="ms-to-top" href="#" class="ms-to-top text-light"><i class="fa fa-chevron-up"></i></a>
      <div class="container">
           <div id="ms-login-form" class="row position-fixed"
                style="height: 100vh; background: rgba(0, 0, 0, 0.44); top: 0; width: 100vw; left: 0; z-index: 5; display: none;">
                <form class="row col-4 m-auto form-control bg-light py-4">
                     <h3 class="text-success text-center mb-4 font-weight-light">Đăng Nhập</h3>
                     <div class="row col-12 m-auto">
-                         <div class="form-group row col-12">
+                         <div class="form-group row col-12 justify-content-between mx-auto">
                               <label for="ms-login-username" class="col-sm-2 col-form-label">Email</label>
-                              <div class="col-sm-10 pl-4 pr-0">
+                              <div class="col-sm-9">
                                    <input type="email" class="form-control" id="ms-login-username">
                               </div>
                          </div>
-                         <div class="form-group row col-12">
+                         <div class="form-group row col-12 justify-content-between mx-auto">
                               <label for="ms-login-password" class="col-sm-2 col-form-label">Password</label>
-                              <div class="col-sm-10 pl-4 pr-0">
+                              <div class="col-sm-9">
                                    <input type="password" class="form-control" id="ms-login-password">
                               </div>
                          </div>
                     </div>
-                    <div class="col-3 mx-auto">
-                         <button class="w-100 btn btn-outline-dark" type="submit"><i
-                                   class="fa fa-sign-in-alt fa-weight-light"></i></button>
+                    <div class="row col-10 justify-content-between d-flex mx-auto">
+                         <button id="ms-login-form-close"
+                              class=" col-4 w-100 btn btn-outline-dark mx-auto">Đóng</button>
+                         <button class=" col-7 w-100 btn btn-outline-dark">
+                              <i class="fa fa-sign-in-alt fa-weight-light mx-auto"></i>
+                         </button>
+
                     </div>
                </form>
           </div>
@@ -194,7 +199,7 @@
                </div>
                <!--div class="col-md-6 col-lg-3 my-2">
                     <div class="card ms-hover">
-                         <div class="card-img-top ms-center-image my-4" style="height: 250px;">
+                         <div class="card-img-top ms-center-image my-4 ms-zoom" style="height: 250px;">
                               <img id="ms-product-image" class="mw-100 mh-100" src="../img/Product/1.jpg" alt="Ảnh minh họa">
                          </div>
                          <div class="card-body">
@@ -245,5 +250,39 @@
      <script src="../js/home.js"></script>
      <script src="../js/cart.js"></script>
 </body>
+
+<footer class="container-fluid ms-bg-dark py-3">
+     <div class="row text-center text-md-left">
+          <div class="col-md-3 mx-auto">
+               <h5 class="text-light lead">Liên Hệ</h5>
+               <span class="text-secondary">Email: abc@xyzs</span><br>
+               <span class="text-secondary">Địa chỉ: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt,
+                    omnis! Eaque praesentium provident tempore, esse eveniet tenetur, nihil libero itaque dolor corporis
+                    sunt cupiditate. Debitis minima tempore consectetur inventore similique.</span>
+          </div>
+          <div class="col-md-3 mx-auto">
+               <h5 class="text-light lead">Kết Nối với chúng tôi</h5>
+               <a href="https://www.facebook.com/3ei3isaki" target="_blank"><span
+                         class="text-secondary">Facebook</span></a><br>
+               <a href="#"><span class="text-secondary">Youtube</span></a><br>
+               <a href="#"><span class="text-secondary">Instagram</span></a><br>
+               <a href="#"><span class="text-secondary">Twitter</span></a>
+          </div>
+          <div class="col-md-3 mx-auto">
+               <h5 class="text-light lead">Trợ Giúp</h5>
+               <a href="#"><span class="text-secondary">Thứ 2 đến CN: 9h - 18h (Hotline), 7h - 22h (chat trực
+                         tuyến)</span></a><br>
+               <a href="#"><span class="text-secondary">Trung tâm hỗ trợ</span></a><br>
+               <a href="#"><span class="text-secondary">Hướng dẫn đặt hàng</span></a><br>
+               <a href="#"><span class="text-secondary">Giao hàng & Nhận hàng</span></a><br>
+               <a href="#"><span class="text-secondary">Hướng dẫn đổi trả hàng</span></a>
+
+          </div>
+     </div>
+     <hr class="bg-secondary">
+     <div class="col-12">
+          <span class="text-center d-block text-light lead">Thiết Kế bởi Ngô Đức Thọ - 18607095</span>
+     </div>
+</footer>
 
 </html>
