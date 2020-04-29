@@ -1,25 +1,24 @@
 <?php
-class Home_Controller extends Controller
+class Product_Controller extends Controller
 {
-     public function __construct()
-     {
-     }
-
      public function indexAction($page = 1)
      {
           $product = $this->loadModel("product");
-          $category = $this->loadModel("category");
 
           $this->loadView(
-               "home",
+               "product",
                [
                     "productData" => [
                          "productList" => $product->getProduct($page),
                          "totalPage" => $product->getTotalPage(),
                          "thisPage" => $page
-                    ],
-                    "category" => $category->getCategory()
+                    ]
                ]
           );
+     }
+
+     public function listAction($page = 1)
+     {
+          $this->indexAction($page);
      }
 }

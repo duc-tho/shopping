@@ -10,7 +10,7 @@ define("DB_PASS", "ngoductho18607095");
 define("DB_DATABASE", "meishop");
 
 // Defaut Param
-define("DEFAULT_CONTROLLER", "home");
+define("DEFAULT_CONTROLLER", "Error");
 define("DEFAULT_ACTION", "index");
 
 // PATH

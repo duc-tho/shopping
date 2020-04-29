@@ -9,7 +9,7 @@ class Database
 
           if ($this->conn->connect_error) die("Kết nối đến database thất bai!\n{$this->conn->connect_error}");
 
-          mysqli_query($this->conn, "SET NAME 'utf8'");
+          mysqli_query($this->conn, "SET NAMES 'utf8'");
      }
 
      public function __destruct()

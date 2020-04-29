@@ -11,9 +11,14 @@ class Router
           $_ = $GLOBALS['_'];
           $urlArr = $this->urlParse();
 
+          if (empty($urlArr[0]) || $urlArr[0] == "#") {
+               $this->controller = "home";
+          }
+
           // Kiểm tra file Controller có tồn tại hay không
           if (file_exists("{$_(PATH_APPLICATION)}\controllers\\{$_(ucfirst(strtolower($urlArr[0])))}_Controller.php"))
                $this->controller = array_shift($urlArr);
+          else $urlArr = null;
 
           // Định đạng lại tên của Contoller
           $this->controller = "{$_(ucfirst(strtolower($this->controller)))}_Controller";
@@ -26,7 +31,7 @@ class Router
           if (isset($urlArr[0])) {
                if (method_exists($this->controller, "{$_(strtolower($urlArr[0]))}Action")) {
                     $this->action = array_shift($urlArr);
-               }
+               } else $urlArr = null;
           }
 
           // định dạng tên Action
