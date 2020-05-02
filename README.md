@@ -1,6 +1,6 @@
 Mei Shop Website Project
 ========================
-Librarys use in this project
+Librarys use in Front End
 ---------------------------
 - Bootstrap
 - Font Awsome
@@ -11,7 +11,4 @@ Librarys use in this project
 - SweatAlert
 - Animate
 ---------------------------
-*Please Download Lib Folder at [Here](https://drive.google.com/open?id=1EYC6iXvmsZGmtwoZ7cTiNchrOBhAM1BV)
-=
-*Then put it in assets folder
----------------------------
+
