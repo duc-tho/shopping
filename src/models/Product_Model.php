@@ -11,6 +11,11 @@ class Product_Model extends Database
           return $this->excuteQuery("SELECT * FROM `product` ORDER BY ProductID DESC LIMIT {$startItem}, $this->itemPerPage");
      }
 
+     public function getProductById($id = -1)
+     {
+          return $this->excuteQuery("SELECT * FROM `product` WHERE ProductID = {$id}")[0];
+     }
+
      public function getTotalProduct()
      {
           return $this->excuteQuery("SELECT COUNT(*) FROM product")[0]["COUNT(*)"];

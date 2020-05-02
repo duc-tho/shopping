@@ -13,6 +13,7 @@ class Home_Controller extends Controller
           $this->loadView(
                "home",
                [
+                    "title" => "Trang Chủ",
                     "productData" => [
                          "productList" => $product->getProduct($page),
                          "totalPage" => $product->getTotalPage(),

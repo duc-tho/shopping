@@ -5,5 +5,5 @@
           <hr>
      </div>
 
-     <?php include_once "{$_(PATH_APPLICATION)}\\views\components\home\Category_Item_Component.php" ?>
+     <?php include_once "{$_(PATH_APPLICATION)}/views/components/home/Category_Item_Component.php" ?>
 </div>

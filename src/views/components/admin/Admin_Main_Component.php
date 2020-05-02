@@ -1,0 +1,1 @@
+<a class="btn btn-success" href="/admin/addProduct">Thêm sản phẩm</a>

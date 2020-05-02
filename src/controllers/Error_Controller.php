@@ -5,7 +5,7 @@ class Error_Controller extends Controller
      {
           switch ($errCode) {
                case "404":
-                    $this->loadView("e404");
+                    $this->loadView("e404", ["title" => "Lỗi"]);
                     break;
           }
      }

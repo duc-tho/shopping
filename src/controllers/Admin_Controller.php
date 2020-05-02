@@ -3,7 +3,10 @@ class Admin_Controller extends Controller
 {
      public function indexAction()
      {
-          echo "ADMIN INDEX";
+          $this->loadView("admin", [
+               "title" => "Admin",
+               "page" => "admin"
+          ]);
      }
 
      public function addProductAction()
@@ -20,6 +23,7 @@ class Admin_Controller extends Controller
           $category = $this->loadModel("category");
 
           $this->loadView("admin", [
+               "title" => "Admin - Add Product",
                "page" => "addProduct",
                "status" => $status,
                "category" => $category->getCategory()
