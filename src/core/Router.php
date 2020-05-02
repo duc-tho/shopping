@@ -31,7 +31,11 @@ class Router
           if (isset($urlArr[0])) {
                if (method_exists($this->controller, "{$_(strtolower($urlArr[0]))}Action")) {
                     $this->action = array_shift($urlArr);
-               } else $urlArr = null;
+               } else {
+                    $urlArr = null;
+                    //include_once "{$_(PATH_APPLICATION)}\controllers\\Error_Controller.php";
+                    //$this->controller = new Error_Controller;
+               }
           }
 
           // định dạng tên Action

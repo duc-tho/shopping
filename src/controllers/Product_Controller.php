@@ -5,16 +5,22 @@ class Product_Controller extends Controller
      {
           $product = $this->loadModel("product");
 
-          $this->loadView(
-               "product",
-               [
-                    "productData" => [
-                         "productList" => $product->getProduct($page),
-                         "totalPage" => $product->getTotalPage(),
-                         "thisPage" => $page
+          $totalPage = $product->getTotalPage();
+
+          if ($page > $totalPage) {
+               $this->loadView("e404");
+          } else {
+               $this->loadView(
+                    "product",
+                    [
+                         "productData" => [
+                              "productList" => $product->getProduct($page),
+                              "totalPage" => $totalPage,
+                              "thisPage" => $page
+                         ]
                     ]
-               ]
-          );
+               );
+          }
      }
 
      public function listAction($page = 1)

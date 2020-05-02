@@ -25,7 +25,7 @@ class Database
      public function dataHandle($data)
      {
 
-          if ($data->num_rows > 0) {
+          if (isset($data->num_rows) && $data->num_rows > 0) {
                while ($row = $data->fetch_assoc()) {
                     $result[] = $row;
                }
