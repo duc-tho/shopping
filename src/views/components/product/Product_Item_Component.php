@@ -17,7 +17,7 @@ foreach ($data['productData']['productList'] as $product) {
                     <div class="row">
                          <div class="col-8 text-center text-md-left" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                               <h5 class="card-title d-inline text-center">
-                                   <a id="ms-product-name" title="<?php echo $name ?>" href="./product/detail/<?php echo $productId ?>"><?php echo $name ?></a>
+                                   <a id="ms-product-name" title="<?php echo $name ?>" href="/product/detail/<?php echo $productId ?>"><?php echo $name ?></a>
                               </h5>
                          </div>
                          <div class="col-4 my-auto">

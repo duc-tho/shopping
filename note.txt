@@ -1,2 +1,28 @@
 // DB insert
 insert into product (ProductID, ProductName, CateID, Quantily, Description, Price, Picture, Rating, Discount) values (1, 'White Faced Hornet hymenoptera venom Venomil Maintenance', 2, 51, 'Other neuroplasty', 8486849, 'http://dummyimage.com/242x154.png/5fa2dd/ffffff', 1.7, 70);
+
+
+
+Route
+/
+/home
+
+/product
+/product/list
+/product/list/<Page>
+
+/product/detail/<ProductID>
+
+/product/category/<CategoryID>
+/product/category/<CategoryID>/<Page>
+
+--/admin/login
+--/admin/home
+/admin/product/add
+--/admin/product/edit/<id>
+--/admin/product/del/<id>
+
+--/login
+--/user
+--/cart
+--/order

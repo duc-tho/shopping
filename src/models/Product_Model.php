@@ -1,7 +1,7 @@
 <?php
 class Product_Model extends Database
 {
-     protected $itemPerPage = 20;
+     protected $itemPerPage = 16;
 
      public function getProduct($page)
      {
@@ -14,6 +14,22 @@ class Product_Model extends Database
      public function getProductById($id = -1)
      {
           return $this->excuteQuery("SELECT * FROM `product` WHERE ProductID = {$id}")[0];
+     }
+
+     public function getProductsByCategory($id = -1, $page)
+     {
+          $startItem = ($page - 1) * $this->itemPerPage;
+          return $this->excuteQuery("SELECT * FROM `product` WHERE CateID = {$id} ORDER BY ProductID DESC LIMIT {$startItem}, $this->itemPerPage");
+     }
+
+     public function getTotalProductByCategory($id = -1)
+     {
+          return $this->excuteQuery("SELECT COUNT(*) FROM `product` WHERE CateID = {$id}")[0]['COUNT(*)'];
+     }
+
+     public function getTotalProductPageByCategory($cid)
+     {
+          return ceil($this->getTotalProductByCategory($cid) / $this->itemPerPage);
      }
 
      public function getTotalProduct()

@@ -7,7 +7,7 @@
           <div class="collapse navbar-collapse" id="navbar-content">
                <ul class="navbar-nav ms-white-space-nowrap text-center">
                     <li class="nav-item">
-                         <a href="/" class="nav-link active">Trang chủ</a>
+                         <a href="/" class="nav-link">Trang chủ</a>
                     </li>
                     <li class="nav-item">
                          <a href="/product" class="nav-link">Sản Phẩm</a>
