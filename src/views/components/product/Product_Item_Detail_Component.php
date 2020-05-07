@@ -12,7 +12,7 @@ $saleOff = number_format($price - $price * ($discount / 100), 0, ",", ".");
 ?>
 <div class="row mt-4">
      <div class="col-lg-5">
-          <img class="w-100" src="<?php echo $picture; ?>" alt="Apple MacBook Air 13">
+          <img class="w-100" src="<?php echo $picture; ?>" alt="<?php echo $name; ?>">
      </div>
      <div class="col-lg-7 d-flex flex-column justify-content-between">
           <div>
@@ -67,6 +67,9 @@ $saleOff = number_format($price - $price * ($discount / 100), 0, ",", ".");
           <p class="text-center text-secondary lead">Chưa có bình luận nào! Hãy để lại ý kiến hoặc thắc mắc cùa bạn!</p>
      </div>
 </div>
+
+<?php include_once "{$_(PATH_APPLICATION)}/views/components/product/Product_Item_Relate_Component.php" ?>
+
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script>
      let editor = new Quill('#description', {

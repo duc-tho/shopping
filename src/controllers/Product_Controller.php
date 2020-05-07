@@ -33,6 +33,8 @@ class Product_Controller extends Controller
      public function detailAction($pid = -1)
      {
           $product = $this->loadModel("product");
+          $productData = $product->getProductById($pid);
+          $productListRelate = $product->getRelateProduct($pid, $productData['CateID'], 4);
 
           if ($pid > $product->getTotalProduct() || $pid < 1) {
                $this->loadView("e404", ["title" => "Lỗi"]);
@@ -41,7 +43,10 @@ class Product_Controller extends Controller
                     "product",
                     [
                          "page" => "detail",
-                         "product" =>  $product->getProductById($pid),
+                         "product" =>  $productData,
+                         "productData" => [
+                              "productList" => $productListRelate
+                         ],
                          "title" => "Chi tiết Sản Phẩm"
                     ]
                );

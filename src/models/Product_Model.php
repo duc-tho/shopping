@@ -3,9 +3,11 @@ class Product_Model extends Database
 {
      protected $itemPerPage = 16;
 
-     public function getProduct($page)
+     public function getProduct($page, $itemPerPage = null)
      {
-          $startItem = ($page - 1) * $this->itemPerPage;
+          if ($itemPerPage == null) $itemPerPage = $this->itemPerPage;
+
+          $startItem = ($page - 1) * $itemPerPage;
           //$endItem = $startItem + $this->itemPerPage;
 
           return $this->excuteQuery("SELECT * FROM `product` ORDER BY ProductID DESC LIMIT {$startItem}, $this->itemPerPage");
@@ -16,10 +18,17 @@ class Product_Model extends Database
           return $this->excuteQuery("SELECT * FROM `product` WHERE ProductID = {$id}")[0];
      }
 
-     public function getProductsByCategory($id = -1, $page)
+     public function getProductsByCategory($id = -1, $page, $itemPerPage = null)
      {
-          $startItem = ($page - 1) * $this->itemPerPage;
+          if ($itemPerPage == null) $itemPerPage = $this->itemPerPage;
+
+          $startItem = ($page - 1) * $itemPerPage;
           return $this->excuteQuery("SELECT * FROM `product` WHERE CateID = {$id} ORDER BY ProductID DESC LIMIT {$startItem}, $this->itemPerPage");
+     }
+
+     public function getRelateProduct($pid = -1, $cid, $itemPerPage = 4)
+     {
+          return $this->excuteQuery("SELECT * FROM `product` WHERE CateID = {$cid} AND ProductID != {$pid} ORDER BY ProductID DESC LIMIT 0, {$itemPerPage}");
      }
 
      public function getTotalProductByCategory($id = -1)
