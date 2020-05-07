@@ -3,6 +3,7 @@
 
 <head>
      <?php include_once "{$_(PATH_APPLICATION)}/views/components/common/Head_Component.php" ?>
+     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 </head>
 
 <body>

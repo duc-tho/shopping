@@ -42,15 +42,14 @@ class Product_Model extends Database
           return ceil($this->getTotalProduct() / $this->itemPerPage);
      }
 
-     public function addProduct($data)
+     public function addProduct($data, $picture)
      {
           $id = $this->getTotalProduct() + 1;
           $name = $data["name"];
           $cateId = $data["cateId"];
           $quantily = $data["quantily"];
-          $description = $data["description"];
+          $description = str_replace("\\n", "\\\\n", $data["description"]);
           $price = $data["price"];
-          $picture = $data["picture"];
           $rating = $data["rating"];
           $discount = $data["discount"];
 

@@ -51,8 +51,9 @@ $saleOff = number_format($price - $price * ($discount / 100), 0, ",", ".");
      <div class="col-lg-12">
           <hr>
           <h3><?php echo $name; ?></h3>
-          <p><?php echo $description; ?></p>
-          <img class="w-100 mb-3 mx-auto" src="<?php echo $picture; ?>">
+          <!-- <div class="d-none"><?php #echo $description; 
+                                   ?></div> -->
+          <div id="description"></div>
      </div>
 </div>
 <div class="row mb-4">
@@ -66,3 +67,11 @@ $saleOff = number_format($price - $price * ($discount / 100), 0, ",", ".");
           <p class="text-center text-secondary lead">Chưa có bình luận nào! Hãy để lại ý kiến hoặc thắc mắc cùa bạn!</p>
      </div>
 </div>
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script>
+     let editor = new Quill('#description', {
+          readOnly: true
+     });
+
+     editor.setContents(JSON.parse(`<?php echo str_replace("\\n", "\\\\n", $description) ?>`));
+</script>

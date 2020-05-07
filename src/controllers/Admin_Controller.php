@@ -11,13 +11,19 @@ class Admin_Controller extends Controller
 
      public function addProductAction()
      {
-          $status = 0;
-          // 0 null - 1 success - -1 error
+          $error = null;
+          $_ = $GLOBALS["_"];
 
           if (isset($_POST['submit'])) {
-               $product = $this->loadModel("product");
-               $product->addProduct($_POST);
-               $status = 1;
+               include_once "{$_(PATH_APPLICATION)}/core/File_Upload.php";
+               $imageFile = new File_Upload($_FILES['picture']);
+               $error = $imageFile->upload();
+
+               if ($error == "") {
+                    $imageUrl = $imageFile->getFileURL();
+                    $product = $this->loadModel("product");
+                    $product->addProduct($_POST, $imageUrl);
+               }
           }
 
           $category = $this->loadModel("category");
@@ -25,7 +31,7 @@ class Admin_Controller extends Controller
           $this->loadView("admin", [
                "title" => "Admin - Add Product",
                "page" => "addProduct",
-               "status" => $status,
+               "status" => $error,
                "category" => $category->getCategory()
           ]);
      }

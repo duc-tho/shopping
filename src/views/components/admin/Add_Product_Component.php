@@ -1,10 +1,6 @@
 <h1 class="display-4 text-center text-primary">Thêm sản phẩm</h1>
-<?php if ($data["status"] == 1) { ?>
-     <div class="alert alert-success" role="alert">
-          Thêm sản phẩm thành công!
-     </div>
-<?php } ?>
-<form action="/admin/addproduct" method="post" class="w-100">
+
+<form onsubmit="getDescriptionData();" action="/admin/addproduct" method="post" class="w-100" enctype="multipart/form-data">
      <div class="form-group">
           <label for="name">Product Name</label>
           <input name="name" type="text" class="form-control" id="name" placeholder="Nhập tên sản phẩm">
@@ -23,8 +19,9 @@
           <input name="quantily" type="number" min="0" class="form-control" id="quantily" placeholder="Nhập định lượng">
      </div>
      <div class="form-group">
-          <label for="description">Description</label>
-          <textarea name="description" class="form-control" id="description" rows="3" placeholder="Nhập Mô tả sản phẩm"></textarea>
+          <label for="editor">Description</label>
+          <div id="editor"></div>
+          <input type="text" id="description" name="description" class="d-none">
      </div>
      <div class="form-group">
           <label for="price">Price</label>
@@ -36,18 +33,84 @@
      </div>
      <div class="form-group">
           <label for="picture">Picture</label>
-          <input name="picture" type="text" class="form-control" id="picture" placeholder="Nhập Link tới ảnh của sản phẩm"></input>
+          <div class="custom-file">
+               <input name="picture" type="file" class="custom-file-input" id="picture" style="cursor: pointer;" accept="image/*">
+               <label class="custom-file-label" for="customFile">Click vào để tải lên ảnh sản phẩm</label>
+          </div>
      </div>
      <div class="form-group">
           <label for="rating">Rating</label>
-          <select name="rating" class="form-control" id="rating">
-               <option value="null" selected>Chọn đánh giá sản phẩm</option>
-               <option value="1">1</option>
-               <option value="2">2</option>
-               <option value="3">3</option>
-               <option value="4">4</option>
-               <option value="5">5</option>
-          </select>
+          <input name="rating" type="number" min="0" max="5" step="0.1" class="form-control" id="rating" placeholder="Chọn đánh giá sản phẩm"></input>
      </div>
      <button name="submit" type="submit" class=" w-100 btn btn-primary">Thêm</button>
 </form>
+
+<div id="result" class="w-100"></div>
+
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script>
+     var toolbarOptions = [
+          ['bold', 'italic', 'underline', 'strike'], // toggled buttons
+          ['blockquote', 'code-block'],
+
+          [{
+               'header': 1
+          }, {
+               'header': 2
+          }], // custom button values
+          [{
+               'list': 'ordered'
+          }, {
+               'list': 'bullet'
+          }],
+          [{
+               'script': 'sub'
+          }, {
+               'script': 'super'
+          }], // superscript/subscript
+          [{
+               'indent': '-1'
+          }, {
+               'indent': '+1'
+          }], // outdent/indent
+          [{
+               'direction': 'rtl'
+          }], // text direction
+
+          [{
+               'size': ['small', false, 'large', 'huge']
+          }], // custom dropdown
+          [{
+               'header': [1, 2, 3, 4, 5, 6, false]
+          }],
+
+          [{
+               'color': []
+          }, {
+               'background': []
+          }], // dropdown with defaults from theme
+          [{
+               'font': []
+          }],
+          [{
+               'align': []
+          }],
+          ['image'],
+          ['clean'] // remove formatting button
+     ];
+
+     let editor = new Quill('#editor', {
+          theme: 'snow',
+          placeholder: 'Nhập mô tả sản phẩm!',
+          debug: 'info',
+          modules: {
+               toolbar: toolbarOptions
+          }
+     });
+
+     Quill.debug(false);
+
+     function getDescriptionData() {
+          document.getElementById('description').value = JSON.stringify(editor.getContents());
+     }
+</script>

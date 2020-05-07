@@ -15,3 +15,5 @@ define("DEFAULT_ACTION", "index");
 
 // PATH
 define("PATH_APPLICATION", __DIR__);
+define("PATH_ROOT", $_SERVER['DOCUMENT_ROOT']);
+define("PATH_PUBLIC", $_SERVER['DOCUMENT_ROOT'] . '/public');
