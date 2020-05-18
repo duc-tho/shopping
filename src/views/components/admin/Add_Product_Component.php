@@ -1,6 +1,12 @@
 <h1 class="display-4 text-center text-primary">Thêm sản phẩm</h1>
 
-<form onsubmit="getDescriptionData();" action="/admin/addproduct" method="post" class="w-100" enctype="multipart/form-data">
+<?php if ($data['status'] != "") { ?>
+     <div class="alert alert-danger" role="alert">
+          <?php echo $data['status']; ?>
+     </div>
+<?php } ?>
+
+<form onsubmit="getDescriptionData();" action="/admin/product/add" method="post" class="w-100" enctype="multipart/form-data">
      <div class="form-group">
           <label for="name">Product Name</label>
           <input name="name" type="text" class="form-control" id="name" placeholder="Nhập tên sản phẩm">

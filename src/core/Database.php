@@ -19,12 +19,17 @@ class Database
 
      public function excuteQuery($query)
      {
-          return $this->dataHandle($this->conn->query($query));
+          $data = $this->conn->query($query);
+
+          if ($data == false) {
+               return "fail";
+          } else {
+               return $this->dataHandle($data);
+          }
      }
 
      public function dataHandle($data)
      {
-
           if (isset($data->num_rows) && $data->num_rows > 0) {
                while ($row = $data->fetch_assoc()) {
                     $result[] = $row;

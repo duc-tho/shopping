@@ -12,7 +12,7 @@ class File_Upload
           $_ = $GLOBALS["_"];
           $this->file = $file;
           $this->targetDir = "{$_(PATH_PUBLIC)}";
-          $this->fileName = "{$_(uniqid(""))}_{$_(basename($this->file['name']))}";
+          $this->fileName = preg_replace('/[^\w.]/', '', "{$_(uniqid(""))}_{$_(basename($this->file['name']))}");
           $this->targetFile = "{$this->targetDir}/img/Product/{$this->fileName}";
           $this->FileType = strtolower(pathinfo($this->targetFile, PATHINFO_EXTENSION));
      }
@@ -47,13 +47,19 @@ class File_Upload
           }
      }
 
-     public function upload()
+     public function checkAll()
      {
-          $_ = $GLOBALS["_"];
           $this->checkFileExist();
           $this->checkFileIsImage();
           $this->checkFileType();
           $this->checkFileSize();
+
+          return $this->err;
+     }
+
+     public function upload()
+     {
+          $_ = $GLOBALS["_"];
 
           if ($this->err != "") {
                $this->err = "File chưa được tải lên \n- Lỗi: {$this->err}";
@@ -62,7 +68,5 @@ class File_Upload
                     $this->err = "Đã có lỗi xảy ra trong quá trình Upload File";
                }
           }
-
-          return $this->err;
      }
 }
