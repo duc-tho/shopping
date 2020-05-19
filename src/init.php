@@ -3,6 +3,9 @@ $GLOBALS["_"] = function ($param) {
      return $param;
 };
 
+//set time zone
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+
 // Database Param
 define("DB_HOST", "localhost");
 define("DB_USER", "ductho");

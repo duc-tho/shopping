@@ -3,9 +3,16 @@ class Admin_Controller extends Controller
 {
      public function indexAction()
      {
+          $product = $this->loadModel("product");
+          $category = $this->loadModel("category");
+
           $this->loadView("admin", [
                "title" => "Admin",
-               "page" => "admin"
+               "page" => "admin",
+               "info" => [
+                    "productCount" => $product->getTotalProduct(),
+                    "categoryCount" => $category->getTotalCategory()
+               ]
           ]);
      }
 

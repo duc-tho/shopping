@@ -1,69 +1,5 @@
 //Product Data
-let productData = [{
-     "name": "A-D-D",
-     "price": "¥82.44",
-     "saleOff": 18
-}, {
-     "name": "ATACAND",
-     "price": "¥10.60",
-     "saleOff": 46
-}, {
-     "name": "Duloxetine Hydrochloride",
-     "price": "¥28.59",
-     "saleOff": 31
-}, {
-     "name": "Labetalol HCl",
-     "price": "¥33.44",
-     "saleOff": 87
-}, {
-     "name": "Pedia Relief",
-     "price": "¥37.45",
-     "saleOff": 8
-}, {
-     "name": "Levocarnitine",
-     "price": "¥26.69",
-     "saleOff": 45
-}, {
-     "name": "Heparin Sodium in Dextrose",
-     "price": "¥76.86",
-     "saleOff": 91
-}, {
-     "name": "Diphenhydramine HCl",
-     "price": "¥89.31",
-     "saleOff": 58
-}, {
-     "name": "Epinephrine",
-     "price": "¥88.39",
-     "saleOff": 69
-}, {
-     "name": "The Natural Dentist",
-     "price": "¥38.57",
-     "saleOff": 18
-}, {
-     "name": "Bodycology",
-     "price": "¥86.81",
-     "saleOff": 47
-}, {
-     "name": "Gallbladder Liver Meridian Opener",
-     "price": "¥16.99",
-     "saleOff": 18
-}, {
-     "name": "Gelato APF",
-     "price": "¥25.87",
-     "saleOff": 10
-}, {
-     "name": "Ulta Nectarine Spice Anti-Bacterial Gentle Foaming",
-     "price": "¥31.43",
-     "saleOff": 75
-}, {
-     "name": "XtraCare Anti-Dandruff Hair Cleanse",
-     "price": "¥47.12",
-     "saleOff": 81
-}, {
-     "name": "Torsemide",
-     "price": "¥18.92",
-     "saleOff": 45
-}]
+let productData = []
 
 //Cart - Product
 let cartItemList = document.querySelector('#ms-cart-item');
@@ -138,7 +74,8 @@ function addToCart(item) {
      let product = {
           name: rootElement.querySelector('#ms-product-name').textContent,
           price: rootElement.querySelector('#ms-product-price').textContent.replace(/\s/g, ""),
-          image: rootElement.querySelector('#ms-product-image').src
+          image: rootElement.querySelector('#ms-product-image').src,
+          id: rootElement.href.split("/").pop()
      }
 
      saveData(product);
@@ -151,25 +88,29 @@ function addToCart(item) {
 }
 
 function loadCart() {
-     let currentData = JSON.parse(localStorage.cart);
+     axios.get("/cart/get").then(res => {
+          currentData = res.data;
 
-     cartItemList.innerHTML = `<h4 class="dropdown-header text-center">Các sản phẩm đã thêm vào giỏ</h4>
-     <div class="dropdown-divider"></div>`;
+          cartItemList.innerHTML = `<h4 class="dropdown-header text-center">Các sản phẩm đã thêm vào giỏ</h4>
+          <div class="dropdown-divider"></div>`;
 
-     currentData.forEach(item => {
-          let product = {
-               name: item.name,
-               price: item.price,
-               image: item.image,
-               count: item.count,
-               time: item.time
-          }
+          currentData.forEach(item => {
+               let product = {
+                    name: item.name,
+                    price: item.price,
+                    image: item.image,
+                    count: item.count,
+                    time: item.time
+               }
 
-          renderCardItem(product);
+               renderCardItem(product);
+          });
+
+          cartCount.innerText = document.querySelectorAll('#ms-delete-product-from-cart').length;
+          setEventForAllDeleteFromCartButton();
      });
 
-     cartCount.innerText = document.querySelectorAll('#ms-delete-product-from-cart').length;
-     setEventForAllDeleteFromCartButton();
+
 }
 
 function renderCardItem(product) {
@@ -189,18 +130,19 @@ function renderCardItem(product) {
 }
 
 function saveData(newData) {
-     let currentData = JSON.parse(localStorage.cart);
-     let checkData = currentData.find(i => { return i.name == newData.name });
+     // let currentData = JSON.parse(localStorage.cart);
+     // let checkData = currentData.find(i => { return i.name == newData.name });
 
-     if (!checkData) {
-          newData.count = 1;
-          newData.time = getTime();
-          currentData.push(newData);
-     } else {
-          checkData.count++;
-     }
+     // if (!checkData) {
+     //      newData.count = 1;
+     //      newData.time = getTime();
+     //      currentData.push(newData);
+     // } else {
+     //      checkData.count++;
+     // }
 
-     localStorage.setItem("cart", JSON.stringify(currentData));
+     // localStorage.setItem("cart", JSON.stringify(currentData));
+     axios.post("/cart/set", newData);
 
      loadCart();
 }

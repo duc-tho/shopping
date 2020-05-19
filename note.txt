@@ -17,10 +17,10 @@ Route
 /product/category/<CategoryID>/<Page>
 
 --/admin/login
---/admin/home
+/admin/home
 /admin/product/add
---/admin/product/edit/<id>
---/admin/product/del/<id>
+/admin/product/edit/<id>
+/admin/product/del/<id>
 
 --/login
 --/user
