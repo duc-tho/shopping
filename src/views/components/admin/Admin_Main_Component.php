@@ -28,6 +28,9 @@
                     case 'manageProduct':
                          include_once "{$_(PATH_APPLICATION)}/views/components/admin/Manage_Product_Component.php";
                          break;
+                    case 'editProduct':
+                         include_once "{$_(PATH_APPLICATION)}/views/components/admin/Edit_Product_Component.php";
+                         break;
                     default:
                          include_once "{$_(PATH_APPLICATION)}/views/components/admin/Admin_Home_Component.php";
                          break;

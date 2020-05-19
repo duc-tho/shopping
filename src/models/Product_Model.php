@@ -94,4 +94,33 @@ class Product_Model extends Database
                return "done";
           }
      }
+
+     public function editProduct($id, $data, $picture)
+     {
+          if (empty($data['name'])) {
+               return "Hãy nhập tên sản phẩm trước khi thêm!";
+          } else if ($data['cateId'] == null) {
+               return "Hãy chọn danh mục sản phẩm trước khi thêm!";
+          } else if (empty($data['quantily'])) {
+               return "Hãy nhập số lượng mặt hàng trước khi thêm!";
+          } elseif (empty($data['price'])) {
+               return "Hãy nhập giá sản phẩm tên trước khi thêm!";
+          }
+
+          $name = $data["name"];
+          $cateId = $data["cateId"];
+          $quantily = $data["quantily"];
+          $description = str_replace("\\n", "\\\\n", $data["description"]);
+          $price = $data["price"];
+          $rating = !empty($data['rating']) ? $data["rating"] : 0;
+          $discount = !empty($data['discount']) ? $data["discount"] : 0;
+
+          echo "UPDATE product SET ProductName = '{$name}', CateID = {$cateId}, Quantily = {$quantily}, Description = '{$description}', Price = {$price}, Picture = '{$picture}', Rating = {$rating}, Discount = {$discount} WHERE ProductID = {$id}";
+
+          if ($this->excuteQuery("UPDATE product SET ProductName = '{$name}', CateID = {$cateId}, Quantily = {$quantily}, Description = '{$description}', Price = {$price}, Picture = '{$picture}', Rating = {$rating}, Discount = {$discount} WHERE ProductID = {$id}") == "fail") {
+               return "Sửa sản phẩm không thành công!";
+          } else {
+               return "done";
+          }
+     }
 }

@@ -6,7 +6,7 @@
      </div>
 <?php } ?>
 
-<form onsubmit="getDescriptionData();" action="/admin/product/add" method="post" class="w-100" enctype="multipart/form-data">
+<form onsubmit="getDescriptionData();" action="/admin/product/add" method="post" class="w-100 py-4" enctype="multipart/form-data">
      <div class="form-group">
           <label for="name">Product Name</label>
           <input name="name" type="text" class="form-control" id="name" placeholder="Nhập tên sản phẩm">
@@ -51,72 +51,6 @@
      <button name="submit" type="submit" class=" w-100 btn btn-primary">Thêm</button>
 </form>
 
-<div id="result" class="w-100"></div>
-
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-<script>
-     var toolbarOptions = [
-          ['bold', 'italic', 'underline', 'strike'], // toggled buttons
-          ['blockquote', 'code-block'],
-
-          [{
-               'header': 1
-          }, {
-               'header': 2
-          }], // custom button values
-          [{
-               'list': 'ordered'
-          }, {
-               'list': 'bullet'
-          }],
-          [{
-               'script': 'sub'
-          }, {
-               'script': 'super'
-          }], // superscript/subscript
-          [{
-               'indent': '-1'
-          }, {
-               'indent': '+1'
-          }], // outdent/indent
-          [{
-               'direction': 'rtl'
-          }], // text direction
-
-          [{
-               'size': ['small', false, 'large', 'huge']
-          }], // custom dropdown
-          [{
-               'header': [1, 2, 3, 4, 5, 6, false]
-          }],
-
-          [{
-               'color': []
-          }, {
-               'background': []
-          }], // dropdown with defaults from theme
-          [{
-               'font': []
-          }],
-          [{
-               'align': []
-          }],
-          ['image'],
-          ['clean'] // remove formatting button
-     ];
-
-     let editor = new Quill('#editor', {
-          theme: 'snow',
-          placeholder: 'Nhập mô tả sản phẩm!',
-          debug: 'info',
-          modules: {
-               toolbar: toolbarOptions
-          }
-     });
-
-     Quill.debug(false);
-
-     function getDescriptionData() {
-          document.getElementById('description').value = JSON.stringify(editor.getContents());
-     }
-</script>
+<script src="/public/js/quill-option.js"></script>
+<script src="/public/js/admin-product.js"></script>

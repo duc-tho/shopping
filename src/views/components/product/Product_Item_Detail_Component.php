@@ -8,7 +8,6 @@ $discount = $productItem["Discount"];
 $quantily = $productItem["Quantily"];
 $rating = $productItem["Rating"];
 $saleOff = number_format($price - $price * ($discount / 100), 0, ",", ".");
-
 ?>
 <div class="row mt-4">
      <div class="col-lg-5">
