@@ -16,7 +16,7 @@ $thisPage = $data['productData']['thisPage'];
                     <div class="page-link">...</div>
                </li>
 
-               <?php if ($thisPage < $totalPage && $thisPage > 2) { ?>
+               <?php if ($thisPage <= $totalPage && $thisPage > 2) { ?>
                     <li class="page-item"><a class="page-link" href="/product/list/<?php echo $thisPage - 1 ?>"><?php echo $thisPage - 1  ?></a></li>
                <?php } ?>
           <?php } ?>
@@ -25,8 +25,9 @@ $thisPage = $data['productData']['thisPage'];
                <div class="page-link"><?php echo $thisPage ?></div>
           </li>
 
+
           <?php if ($thisPage < $totalPage) { ?>
-               <?php if ($thisPage > 1 && $thisPage < ($totalPage - 1)) { ?>
+               <?php if ($thisPage >= 1 && $thisPage < ($totalPage - 1)) { ?>
                     <li class="page-item"><a class="page-link" href="/product/list/<?php echo $thisPage + 1 ?>"><?php echo $thisPage + 1  ?></a></li>
                <?php } ?>
 
