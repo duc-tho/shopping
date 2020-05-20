@@ -85,7 +85,8 @@ function loadCart() {
                     image: item.image,
                     count: item.count,
                     time: item.time,
-                    id: item.id
+                    id: item.id,
+                    discount: item.discount
                }
 
                renderCardItem(product);
@@ -100,7 +101,8 @@ function loadCart() {
 }
 
 function renderCardItem(product) {
-     let total = (parseFloat(product.price.slice(1)) * product.count);
+     let price = parseFloat(product.price);
+     let total = price - price * (parseFloat(product.discount) / 100);
 
      cartItemList.innerHTML += `<div class="dropdown-item px-3">
           <div class="d-flex justify-content-between align-items-center">
@@ -110,7 +112,7 @@ function renderCardItem(product) {
                          <a style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; width: 250px; display: block;" href="/product/detail/${product.id}">${product.name}</a> 
                     </span>
                     <small class="text-danger"><del>${currencyFormat(product.price)}</del></small>
-                    <span class="text-success">${currencyFormat(total)} <span class="badge badge-info">${product.count} sản phẩm</span></span>
+                    <span class="text-success">${currencyFormat(total.toFixed())} <span class="badge badge-info">${product.count} sản phẩm</span></span>
                     <span class="text-secondary">${product.time}</span>
                </div>
                <button id="ms-delete-product-from-cart" class="btn btn-danger" style="flex-grow: 0;">Xóa</button>

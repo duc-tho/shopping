@@ -57,6 +57,7 @@ class Cart_Controller extends Controller
                $data["name"] = $productData["ProductName"];
                $data["price"] = $productData["Price"];
                $data["image"] = $productData["Picture"];
+               $data["discount"] = $productData["Discount"];
                $data["id"] = $id;
 
                array_push($_SESSION['cart_items'], $data);

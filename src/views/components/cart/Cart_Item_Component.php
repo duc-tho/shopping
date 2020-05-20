@@ -26,7 +26,8 @@ $allProductTotal = 0;
                                    $remain = $productItem["Quantily"];
                                    $discount = $productItem["Discount"];
                                    $quantily = $productItem["count"];
-                                   $total = $price * $quantily;
+                                   $saleOff = $price - $price * ($discount / 100);
+                                   $total = $saleOff * $quantily;
                                    $allProductTotal += $total;
                               ?>
                                    <tr>
@@ -34,7 +35,7 @@ $allProductTotal = 0;
                                         <td style="width: 200px;"><a href="product/detail/<?php echo $id ?>"><?php echo $name ?></a></td>
                                         <td class="text-center"><?php echo $remain ?></td>
                                         <td><input disabled onKeyDown="return false" class="form-control" type="number" min="1" max="<?php echo $remain ?>" value="<?php echo $quantily ?>" /></td>
-                                        <td class="text-right"><?php echo number_format($price, 0, ",", ".") . " đ" ?></td>
+                                        <td class="text-right"><?php echo number_format($saleOff, 0, ",", ".") . " đ" ?></td>
                                         <td class="text-right"><?php echo number_format($total, 0, ",", ".") . " đ" ?></td>
                                         <td class="text-right">
                                              <button onclick="sendDelete();" id="btnDeleteFromCart" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
