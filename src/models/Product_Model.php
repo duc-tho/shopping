@@ -26,6 +26,15 @@ class Product_Model extends Database
           return $this->excuteQuery("SELECT * FROM `product` WHERE CateID = {$id} ORDER BY ProductID DESC LIMIT {$startItem}, $this->itemPerPage");
      }
 
+     public function getProductsByName($keyword)
+     {
+          $page = 1;
+          $itemPerPage = 10;
+
+          $startItem = ($page - 1) * $itemPerPage;
+          return $this->excuteQuery("SELECT * FROM `product` WHERE ProductName LIKE '%{$keyword}%' ORDER BY ProductID DESC LIMIT {$startItem}, $itemPerPage");
+     }
+
      public function getRelateProduct($pid = -1, $cid, $itemPerPage = 4)
      {
           return $this->excuteQuery("SELECT * FROM `product` WHERE CateID = {$cid} AND ProductID != {$pid} ORDER BY ProductID DESC LIMIT 0, {$itemPerPage}");

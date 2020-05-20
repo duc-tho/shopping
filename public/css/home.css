@@ -106,3 +106,25 @@
      width: 100%;
      height: 2px;
 }
+
+.ms-search {
+     position: relative;
+}
+
+.ms-search:focus-within .ms-search-output,
+.ms-search:active .ms-search-output
+{
+     display: block !important;
+}
+
+.ms-search-output {
+     position: absolute;
+     padding: 0;
+     width: 100%;
+     display: none !important;
+     min-height: 5px;
+     z-index: 9999;
+     background: white;
+     top: 40px;
+     border-radius: 5px;
+}

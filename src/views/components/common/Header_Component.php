@@ -13,16 +13,17 @@
                          <a href="/product" class="nav-link">Sản Phẩm</a>
                     </li>
                </ul>
-               <form class="d-inline mx-2 my-auto w-100">
+               <div class="d-inline mx-2 my-auto w-100 ms-search">
                     <div class="input-group">
-                         <input type="text" class="form-control border border-right-0" placeholder="Tìm kiếm sản phẩm">
+                         <input id="searchInput" type="text" class="form-control border border-right-0" placeholder="Tìm kiếm sản phẩm">
                          <span class="input-group-append">
                               <button class="btn btn-outline-light border border-left-0" type="button">
                                    <i class="fa fa-search"></i>
                               </button>
                          </span>
+                         <ul id="searchOutput" class="ms-search-output list-group"></ul>
                     </div>
-               </form>
+               </div>
                <ul class="navbar-nav">
                     <li class="nav-item dropdown">
                          <a href="#" data-toggle="dropdown" class="btn btn-light nav-link ms-text-dark btn-sm mr-lg-2 mb-2 mb-lg-0">

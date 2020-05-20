@@ -59,3 +59,29 @@ function scrollFunction() {
           toTopBtn.style.display = "block";
      }
 }
+
+//Search
+let searchInput = document.getElementById("searchInput");
+let searchOutput = document.getElementById("searchOutput");
+let waitTypingDone;
+
+searchInput.addEventListener("input", () => {
+     if (searchInput.value.trim() == "") {
+          searchOutput.innerHTML = "";
+          return;
+     };
+
+     clearTimeout(waitTypingDone);
+     waitTypingDone = setTimeout(() => {
+          axios.post(`/search/get/${searchInput.value.trim().toLowerCase()}`).then(res => {
+               let data = res.data;
+               searchOutput.innerHTML = "";
+
+               for (let i = 0; i < data.length; i++) {
+                    searchOutput.innerHTML += `<li class="px-4 list-group-item">
+                         <a  href="/product/detail/${data[i].ProductID}" style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden; display: block;">${res.data[i].ProductName}</a>
+                    </li>`;
+               }
+          });
+     }, 1000);
+})
