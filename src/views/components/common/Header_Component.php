@@ -30,10 +30,10 @@
                               <span class="font-weight-bold">Giỏ hàng</span>
                               <span id="ms-cart-count" class="badge badge-primary ml-1">0</span>
                          </a>
-                         <div id="ms-cart-item" class="dropdown-menu dropdown-menu-right mt-1" aria-labelledby="dropdownMenuButton" style="height: 400px; overflow: auto;">
+                         <div id="ms-cart-item" class="dropdown-menu dropdown-menu-right mt-1" aria-labelledby="dropdownMenuButton" style="max-height: 400px; overflow: auto;">
                               <h4 class="dropdown-header text-center">Các sản phẩm đã thêm vào giỏ</h4>
                               <div class="dropdown-divider"></div>
-                              <!--a class="dropdown-item px-3" href="#">
+                              <!-- a class="dropdown-item px-3" href="#">
                                         <div class="d-flex justify-content-between align-items-center">
                                              <img style="max-width: 80px;"
                                                   src="/public/img/Product/1.jpg"
@@ -50,7 +50,9 @@
                                              <button id="ms-delete-product-from-cart" class="btn btn-danger"
                                                   style="flex-grow: 0;">Xóa</button>
                                         </div>
-                                   </a-->
+                              </a -->
+                              <div class="dropdown-divider"></div>
+                              <a href="/cart" class="dropdown-item h4 text-center">Xem giỏ hàng</a>
                          </div>
                     </li>
                     <li class="nav-item" id="ms-login">

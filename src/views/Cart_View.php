@@ -14,4 +14,6 @@
 
      <?php include_once "{$_(PATH_APPLICATION)}/views/components/common/Footer_Component.php" ?>
      <?php include_once "{$_(PATH_APPLICATION)}/views/components/common/JS_Import_Component.php" ?>
+
+     <script src="/public/js/view_cart.js"></script>
 </body>

@@ -1,3 +1,7 @@
+<?php
+$allProductTotal = 0;
+?>
+
 <div class="container-fluid my-4">
      <div class="row">
           <div class="col-12">
@@ -14,58 +18,36 @@
                               </tr>
                          </thead>
                          <tbody>
-                              <tr>
-                                   <td style="width: 50px;"><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-                                   <td style="width: 200px;">Product Name Dada</td>
-                                   <td class="text-center">29</td>
-                                   <td><input class="form-control" type="number" value="1" /></td>
-                                   <td class="text-right">1.000.000 đ</td>
-                                   <td class="text-right">1.000.000 đ</td>
-                                   <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
-                              </tr>
-                              <tr>
-                                   <td style="width: 50px;"><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-                                   <td style="width: 200px;">Product Name Dada</td>
-                                   <td class="text-center">29</td>
-                                   <td><input class="form-control" type="number" value="1" /></td>
-                                   <td class="text-right">1.000.000 đ</td>
-                                   <td class="text-right">1.000.000 đ</td>
-                                   <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
-                              </tr>
-                              <tr>
-                                   <td style="width: 50px;"><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-                                   <td style="width: 200px;">Product Name Dada</td>
-                                   <td class="text-center">29</td>
-                                   <td><input class="form-control" type="number" value="1" /></td>
-                                   <td class="text-right">1.000.000 đ</td>
-                                   <td class="text-right">1.000.000 đ</td>
-                                   <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
-                              </tr>
+                              <?php foreach ($data['productList'] as $productItem) {
+                                   $id = $productItem["ProductID"];
+                                   $name = $productItem["ProductName"];
+                                   $price = $productItem["Price"];
+                                   $picture = $productItem["Picture"];
+                                   $remain = $productItem["Quantily"];
+                                   $discount = $productItem["Discount"];
+                                   $quantily = $productItem["count"];
+                                   $total = $price * $quantily;
+                                   $allProductTotal += $total;
+                              ?>
+                                   <tr>
+                                        <td style="width: 50px;"><img height="100px" src="<?php echo $picture ?>" /> </td>
+                                        <td style="width: 200px;"><a href="product/detail/<?php echo $id ?>"><?php echo $name ?></a></td>
+                                        <td class="text-center"><?php echo $remain ?></td>
+                                        <td><input disabled onKeyDown="return false" class="form-control" type="number" min="1" max="<?php echo $remain ?>" value="<?php echo $quantily ?>" /></td>
+                                        <td class="text-right"><?php echo number_format($price, 0, ",", ".") . " đ" ?></td>
+                                        <td class="text-right"><?php echo number_format($total, 0, ",", ".") . " đ" ?></td>
+                                        <td class="text-right">
+                                             <button onclick="sendDelete();" id="btnDeleteFromCart" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                        </td>
+                                   </tr>
+                              <?php } ?>
                               <tr class="bg-secondary text-light">
                                    <td></td>
                                    <td></td>
                                    <td></td>
                                    <td></td>
                                    <td class="text-right font-weight-bold">Tổng cộng</td>
-                                   <td class=" text-right">255,90 €</td>
-                                   <td></td>
-                              </tr>
-                              <tr class="bg-secondary text-light">
-                                   <td></td>
-                                   <td></td>
-                                   <td></td>
-                                   <td></td>
-                                   <td class="text-right font-weight-bold">Phí vận chuyển</td>
-                                   <td class="text-right">30.000 đ</td>
-                                   <td></td>
-                              </tr>
-                              <tr class="bg-dark text-light">
-                                   <td></td>
-                                   <td></td>
-                                   <td></td>
-                                   <td></td>
-                                   <td class="text-right"><strong>Tổng thanh toán</strong></td>
-                                   <td class="text-right"><strong>346,90 €</strong></td>
+                                   <td class="text-right"><?php echo number_format($allProductTotal, 0, ",", ".") . " đ" ?></td>
                                    <td></td>
                               </tr>
                          </tbody>
