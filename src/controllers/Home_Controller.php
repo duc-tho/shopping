@@ -3,6 +3,8 @@ class Home_Controller extends Controller
 {
      public function __construct()
      {
+          $verify = new Auth();
+          $verify->authCookie();
      }
 
      public function indexAction($page = 1)

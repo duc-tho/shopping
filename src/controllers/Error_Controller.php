@@ -1,6 +1,12 @@
 <?php
 class Error_Controller extends Controller
 {
+     public function __construct()
+     {
+          $verify = new Auth();
+          $verify->authCookie();
+     }
+
      public function indexAction($errCode = "404")
      {
           switch ($errCode) {

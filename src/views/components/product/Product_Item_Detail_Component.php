@@ -1,5 +1,6 @@
 <?php
 $productItem = $data["product"];
+$id = $productItem["ProductID"];
 $name = $productItem["ProductName"];
 $price = $productItem["Price"];
 $description = $productItem["Description"];
@@ -15,8 +16,8 @@ $saleOff = number_format($price - $price * ($discount / 100), 0, ",", ".");
      </div>
      <div class="col-lg-7 d-flex flex-column justify-content-between">
           <div>
-               <h2 class="font-weight-light"><?php echo $name; ?></h2>
-
+               <a href="/product/detail/<?php echo $id; ?>" id="ms-product-name" class="font-weight-light h2"><?php echo $name; ?></a>
+               <br>
                <div class="text-secondary lead d-inline">
                     <h4 class="text-danger font-weight-light m-0 d-inline"><?php echo $saleOff; ?> đ</h4>
                     <del><?php echo number_format($price, 0, ",", "."); ?> đ</del><span> -<?php echo $discount; ?>%</span>
@@ -31,7 +32,7 @@ $saleOff = number_format($price - $price * ($discount / 100), 0, ",", ".");
           <div>
                <div class="d-flex align-items-center pb-3">
                     <div class="badge badge-dark p-2 mr-2">
-                         4.9 <i class="fa fa-star text-right text-warning" aria-hidden="true"></i>
+                         <?php echo $rating; ?> <i class="fa fa-star text-right text-warning" aria-hidden="true"></i>
                     </div>
                     <div>Đánh giá!</div>
                </div>
@@ -40,7 +41,7 @@ $saleOff = number_format($price - $price * ($discount / 100), 0, ",", ".");
                          <button class="w-100 btn btn-large btn-info">Mua ngay</button>
                     </div>
                     <div class="col-lg-6">
-                         <button class="w-100 btn btn-large btn-primary">Thêm vào giỏ hàng</button>
+                         <button id="ms-add-to-cart" class="w-100 btn btn-large btn-primary">Thêm vào giỏ hàng</button>
                     </div>
                </div>
           </div>

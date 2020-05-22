@@ -21,7 +21,7 @@ class Database
      {
           $data = $this->conn->query($query);
 
-          if ($data == false) {
+          if ($data === false) {
                return "fail";
           } else {
                return $this->dataHandle($data);

@@ -1,6 +1,12 @@
 <?php
 class Cart_Controller extends Controller
 {
+     public function __construct()
+     {
+          $verify = new Auth();
+          $verify->authCookie();
+     }
+
      public function indexAction()
      {
           $productList = [];

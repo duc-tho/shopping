@@ -32,8 +32,8 @@
                               <span id="ms-cart-count" class="badge badge-primary ml-1">0</span>
                          </a>
                          <div id="ms-cart-item" class="dropdown-menu dropdown-menu-right mt-1" aria-labelledby="dropdownMenuButton" style="max-height: 400px; overflow: auto;">
-                              <h4 class="dropdown-header text-center">Các sản phẩm đã thêm vào giỏ</h4>
-                              <div class="dropdown-divider"></div>
+                              <!-- <h4 class="dropdown-header text-center">Các sản phẩm đã thêm vào giỏ</h4>
+                              <div class="dropdown-divider"></div> -->
                               <!-- a class="dropdown-item px-3" href="#">
                                         <div class="d-flex justify-content-between align-items-center">
                                              <img style="max-width: 80px;"
@@ -52,16 +52,19 @@
                                                   style="flex-grow: 0;">Xóa</button>
                                         </div>
                               </a -->
-                              <div class="dropdown-divider"></div>
-                              <a href="/cart" class="dropdown-item h4 text-center">Xem giỏ hàng</a>
+                              <!-- <div class="dropdown-divider"></div>
+                              <a href="/cart" class="dropdown-item h4 text-center">Xem giỏ hàng</a> -->
                          </div>
                     </li>
-                    <li class="nav-item" id="ms-login">
-                         <a href="#" class="nav-link btn btn-light btn-sm ms-text-dark"><i class="fa fa-sign-in-alt fa-lg"></i></a>
-                    </li>
-                    <li class="nav-item d-none" id="ms-logout">
-                         <a href="#" id="ms-logout" class="nav-link btn btn-light btn-sm ms-text-dark"><i class="fa fa-sign-out-alt fa-lg"></i></a>
-                    </li>
+                    <?php if (!isset($_COOKIE['authKey'])) { ?>
+                         <li class="nav-item" id="ms-login">
+                              <a href="/auth/login" class="nav-link btn btn-light btn-sm ms-text-dark font-weight-bold"><i class="fa fa-sign-in-alt fa-lg"></i> <span>&nbsp; Đăng nhập</span></a>
+                         </li>
+                    <?php } else { ?>
+                         <li class="nav-item" id="ms-logout">
+                              <a href="/auth/logout" id="ms-logout" class="nav-link btn btn-light btn-sm ms-text-dark font-weight-bold"><i class="fa fa-sign-out-alt fa-lg"></i><span>&nbsp; Đăng xuất</span></a>
+                         </li>
+                    <?php } ?>
                </ul>
           </div>
      </nav>

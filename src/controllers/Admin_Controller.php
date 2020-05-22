@@ -1,6 +1,23 @@
 <?php
 class Admin_Controller extends Controller
 {
+     public function __construct()
+     {
+          if (!isset($_COOKIE['authKey'])) {
+               header("location: /auth/login");
+          }
+
+          $verify = new Auth();
+          $verify->authCookie();
+
+          $user = $this->loadModel('user');
+          $id = explode(".", $_COOKIE['authKey'])[0];
+
+          $userData = $user->getUserById($id);
+
+          if ($userData['access'] != 1) die("Bạn không có quyền truy cập vào trang này!");
+     }
+
      public function indexAction()
      {
           $product = $this->loadModel("product");

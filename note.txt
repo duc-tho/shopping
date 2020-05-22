@@ -2,7 +2,6 @@
 insert into product (ProductID, ProductName, CateID, Quantily, Description, Price, Picture, Rating, Discount) values (1, 'White Faced Hornet hymenoptera venom Venomil Maintenance', 2, 51, 'Other neuroplasty', 8486849, 'http://dummyimage.com/242x154.png/5fa2dd/ffffff', 1.7, 70);
 
 
-
 Route
 /
 /home
@@ -16,13 +15,35 @@ Route
 /product/category/<CategoryID>
 /product/category/<CategoryID>/<Page>
 
---/admin/login
+/search/get <POST>
+
+[! REQUIRE LOGIN AND ACCESS PERMISSION]
+/admin   
 /admin/home
 /admin/product/add
 /admin/product/edit/<id>
 /admin/product/del/<id>
 
---/login
+[COOKIE Hết hạn 4 tiếng sau khi đăng nhập]
+/auth
+/auth/login  
+/auth/logout
+/auth/register
+
+[SESSION Sẽ bị xóa khi đóng trình duyệt]
+/cart
+/cart/get 
+/cart/set [POST]
+/cart/delete/<id> [POST]
+
+/search/get/<Keyword> [POST]
+
 --/user
---/cart
 --/order
+
+Chưa hoàn thành
++ [Chi tiết sản phẩm] Đánh giá (Rating) và bình luận sản phẩm
++ [Danh sách sản phẩm] Chưa có bộ lọc
++ [Admin] quản lý Danh mục và User
++ [Thông tin User] 
++ [Đặt hàng]

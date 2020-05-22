@@ -9,6 +9,17 @@
 <link rel="stylesheet" href="/public/lib/OwlCarousel/owl.carousel.min.css">
 <link rel="stylesheet" href="/public/lib/OwlCarousel/owl.theme.default.min.css">
 <link rel="stylesheet" href="/public/lib/animate/animate.min.css">
+
+<?php if (strpos($_SERVER['REQUEST_URI'], "/auth") !== false) { ?>
+     <!---Login--------------------------------------------------------------------------------->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+     <link rel="stylesheet" type="text/css" href="/public/lib/css-hamburgers/hamburgers.min.css">
+     <link rel="stylesheet" type="text/css" href="/public/lib/select2/select2.min.css">
+     <link rel="stylesheet" type="text/css" href="/public/css/login-util.css">
+     <link rel="stylesheet" type="text/css" href="/public/css/login-main.css">
+     <!----------------------------------------------------------------------------------------->
+<?php } ?>
+
 <script src="/public/lib/jquery/jquery-3.4.1.min.js"></script>
 <script src="/public/lib/popper/popper.min.js"></script>
 <script src="/public/lib/bootstrap/js/bootstrap.min.js"></script>

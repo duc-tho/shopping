@@ -1,6 +1,12 @@
 <?php
 class Product_Controller extends Controller
 {
+     public function __construct()
+     {
+          $verify = new Auth();
+          $verify->authCookie();
+     }
+
      public function indexAction($page = 1)
      {
           $product = $this->loadModel("product");
